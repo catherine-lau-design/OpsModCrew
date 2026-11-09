@@ -117,6 +117,7 @@
       <a id="ics" class="btn btn-gold-outline" href="ops-mod-holiday-showdown.ics" download>Add to calendar</a>
     </div>
     <div class="gold" style="font-size:14px;line-height:20px">Please RSVP below. The calendar file is just a reminder.</div>
+    <div class="gold" style="font-size:14px;line-height:20px">Team and ride pairings will be posted closer to the event. <a href="#teams" style="color:#E8D5A8;font-weight:700">Check your team and ride</a></div>
   </div>
 
   <!-- ===== SCHEDULE ===== -->
@@ -214,6 +215,17 @@
       <div id="pending" class="body" hidden></div>
       <div><button id="reset" class="link-btn" type="button">Change my reply</button></div>
     </div>
+  </div>
+
+  <!-- ===== YOUR TEAM AND RIDE ===== -->
+  <div id="teams" class="card">
+    <div class="h2">Your team and ride</div>
+    <div class="body">Enter the name you used to RSVP to see your team and carpool. Pairings are posted closer to the event, so check back soon.</div>
+    <div class="stack-8">
+      <input id="lookupName" class="input" type="text" placeholder="Your name" autocomplete="name">
+      <div><button id="lookupBtn" class="submit ready" type="button">Find my team and ride</button></div>
+    </div>
+    <div id="lookupResult" class="thanks" hidden aria-live="polite"></div>
   </div>
 
 </div></div>
@@ -393,7 +405,8 @@ function render() {
     $('waiver').hidden = !tb;
     $('teamLine').textContent = teamLine; $('teamLine').hidden = !teamLine;
     $('rideLine').textContent = rideLine; $('rideLine').hidden = !rideLine;
-    $('pending').textContent = pending;   $('pending').hidden = !pending;
+    if (pending) $('pending').innerHTML = 'Check back for your team and ride pairing in the <a href="#teams">Your team and ride</a> section.';
+    $('pending').hidden = !pending;
   }
 }
 
@@ -434,6 +447,39 @@ $('reset').addEventListener('click', () => {
   render();
 });
 
+/* ---------- Team and ride lookup ---------- */
+function showLookup(lines) {
+  const box = $('lookupResult');
+  box.innerHTML = '';
+  lines.forEach(t => { const d = document.createElement('div'); d.textContent = t; box.appendChild(d); });
+  box.hidden = false;
+}
+async function doLookup() {
+  const nm = $('lookupName').value.trim();
+  if (!nm) { showLookup(['Please enter your name.']); return; }
+  const btn = $('lookupBtn');
+  btn.disabled = true; btn.textContent = 'Looking...';
+  try {
+    const r = await fetch(CONFIG.rsvpEndpoint + '?action=lookup&name=' + encodeURIComponent(nm));
+    const d = await r.json();
+    if (!d.released) {
+      showLookup(['Team and ride pairings are not posted yet. Please check back soon.']);
+    } else if (!d.team && !d.carpool) {
+      showLookup(['We don\u2019t have a team or ride for that name yet. Make sure it matches the name you used to RSVP, or check back soon.']);
+    } else {
+      const lines = [];
+      if (d.team) lines.push('You\u2019re on team ' + d.team + '.');
+      if (d.carpool) lines.push('You will be carpooling with ' + d.carpool + '.');
+      showLookup(lines);
+    }
+  } catch (e) {
+    showLookup(['We couldn\u2019t look that up right now. Please try again in a moment.']);
+  }
+  btn.disabled = false; btn.textContent = 'Find my team and ride';
+}
+$('lookupBtn').addEventListener('click', doLookup);
+$('lookupName').addEventListener('keydown', e => { if (e.key === 'Enter') doLookup(); });
+
 // Restore a saved reply on return visits
 try {
   const s = JSON.parse(localStorage.getItem(CONFIG.storageKey) || 'null');
@@ -445,6 +491,7 @@ try {
       teamName: s.teamName || '', diet: s.diet || '', done: true
     });
     $('name').value = S.name; $('diet').value = S.diet; $('teamName').value = S.teamName;
+    $('lookupName').value = S.name;
     lookup(s.name);
   }
 } catch (e) {}
