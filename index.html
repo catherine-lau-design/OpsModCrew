@@ -114,7 +114,7 @@
     <div style="margin-top:8px;display:flex;flex-wrap:wrap;align-items:center;gap:16px">
       <a class="btn btn-primary" href="#rsvp">RSVP</a>
       <span class="gold" style="font-size:16px">Please reply by November 27</span>
-      <a id="ics" class="btn btn-gold-outline" download="Ops-Mod-Holiday-Showdown.ics" href="#">Add to calendar</a>
+      <a id="ics" class="btn btn-gold-outline" href="ops-mod-holiday-showdown.ics" download>Add to calendar</a>
     </div>
     <div class="gold" style="font-size:14px;line-height:20px">Please RSVP below. The calendar file is just a reminder.</div>
   </div>
@@ -152,8 +152,8 @@
     <iframe class="map" title="Map of Activate Mississauga" loading="lazy"
       src="https://www.google.com/maps?q=5980+McLaughlin+Rd+Unit+1+Mississauga+ON&amp;output=embed"></iframe>
     <div class="btn-row">
-      <a class="btn btn-map" href="https://www.google.com/maps/dir/?api=1&amp;origin=99+Ironbridge+Rd&amp;destination=5980+McLaughlin+Rd+Unit+1+Mississauga+ON&amp;travelmode=driving">Directions to Activate</a>
-      <a class="btn btn-map-outline" href="https://www.google.com/maps/dir/?api=1&amp;origin=5980+McLaughlin+Rd+Unit+1+Mississauga+ON&amp;destination=5700+Mavis+Rd+Mississauga+ON&amp;travelmode=driving">Directions from Activate to Chuck's</a>
+      <a class="btn btn-map" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&amp;origin=99+Ironbridge+Rd&amp;destination=5980+McLaughlin+Rd+Unit+1+Mississauga+ON&amp;travelmode=driving">Directions to Activate</a>
+      <a class="btn btn-map-outline" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&amp;origin=5980+McLaughlin+Rd+Unit+1+Mississauga+ON&amp;destination=5700+Mavis+Rd+Mississauga+ON&amp;travelmode=driving">Directions from Activate to Chuck's</a>
     </div>
   </div>
 
@@ -233,15 +233,6 @@ const CONFIG = {
   joiningTeamBuilding: 0,
   joiningDinner: 0,
 
-  // Calendar file (.ics) details
-  ics: {
-    uid: 'opsmod-outing-2026',
-    start: '20261209T160000',
-    end:   '20261209T193000',
-    summary: 'Ops Mod Crew - Holiday Showdown',
-    location: 'Activate Mississauga\\, 5980 McLaughlin Rd Unit 1\\, Mississauga ON',
-    description: 'Arrive by 16:00. Team building 16:00-17:15 at Activate Mississauga. Dinner 17:30 at Chuck\u2019s Roadhouse\\, 5700 Mavis Rd.'
-  },
 
   storageKey: 'opsmod-rsvp'
 };
@@ -259,11 +250,11 @@ const CHOICES = [
 ];
 const MEALS = [
   ['roadhouse-burger', '\u{1F354} Roadhouse Burger', 'Cheddar cheese, Chuck\u2019s secret sauce, shredded lettuce and pickle rounds. Served with fries.'],
-  ['veggie-burger', '\u{1F331} Veggie Burger (v, halal)', 'Veggie patty fully dressed with ranch sauce. Served with fries.'],
+  ['veggie-burger', '\u{1F331} Veggie Burger', 'Veggie patty fully dressed with ranch sauce. Served with fries.'],
   ['hot-honey-sizzler', '\u{1F525} Hot Honey Chicken Sizzler', 'Flame-grilled chicken breast with hot honey sauce and saut\u00E9ed vegetables.'],
   ['teriyaki-sizzler', '\u{1F525} Chicken Teriyaki Sizzler', 'Flame-grilled chicken breast with teriyaki sauce and saut\u00E9ed vegetables.'],
-  ['veggie-sizzler', '\u{1F331} Veggie Sizzler (v, halal)', 'Fresh saut\u00E9ed vegetables with smokehouse seasoning.'],
-  ['fish-chips', '\u{1F41F} Fish & Chips (halal)', '1-piece beer-battered haddock with fries, coleslaw, tartar sauce and lemon.'],
+  ['veggie-sizzler', '\u{1F331} Veggie Sizzler', 'Fresh saut\u00E9ed vegetables with smokehouse seasoning.'],
+  ['fish-chips', '\u{1F41F} Fish & Chips', '1-piece beer-battered haddock with fries, coleslaw, tartar sauce and lemon.'],
   ['chicken-parm', '\u{1F35D} Chicken Parm Pasta', 'Breaded chicken breast with penne, ros\u00E9 sauce, mozzarella and Parmesan.'],
   ['bbq-ribs', '\u{1F356} \u00BD Rack BBQ Ribs', 'BBQ back ribs.']
 ];
@@ -277,16 +268,6 @@ const THANKS = {
 };
 
 let S = { name: '', choice: '', meal: '', ride: '', seats: '', teamName: '', diet: '', done: false, assign: null };
-
-/* ---------- Calendar file ---------- */
-(function () {
-  const c = CONFIG.ics;
-  const ics = ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Ops Mod//Outing//EN','BEGIN:VEVENT',
-    'UID:' + c.uid, 'DTSTAMP:20261106T120000Z', 'DTSTART:' + c.start, 'DTEND:' + c.end,
-    'SUMMARY:' + c.summary, 'LOCATION:' + c.location, 'DESCRIPTION:' + c.description,
-    'END:VEVENT','END:VCALENDAR'].join('\r\n');
-  $('ics').href = 'data:text/calendar;charset=utf-8,' + encodeURIComponent(ics);
-})();
 
 /* ---------- Header counts ---------- */
 (function () {
