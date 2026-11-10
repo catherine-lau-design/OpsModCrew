@@ -139,9 +139,9 @@
     <div class="row">
       <div class="time">17:30- 19:30</div>
       <div class="col">
-        <div class="item-title">Dinner at <a href="https://chucksroadhouse.com/locations/mississauga-mavis/">Chuck's Roadhouse</a></div>
+        <div class="item-title">Dinner/drinks at <a href="https://chucksroadhouse.com/locations/mississauga-mavis/">Chuck's Roadhouse</a></div>
         <div class="body">5700 Mavis Road, Mississauga, Ontario, Canada. A 5 minute drive from Activate.</div>
-        <div class="body">Choose your option from the menu when you RSVP. Let's raise a glass to a great year together!</div>
+        <div class="body">Join us for dinner or drinks. Choose your option when you RSVP. Let's raise a glass to a great year together!</div>
       </div>
     </div>
   </div>
@@ -180,7 +180,7 @@
       <div id="choices" class="stack-8"></div>
 
       <div id="mealWrap" class="stack-8" hidden>
-        <div class="label-sm">Pick your dinner at Chuck's Roadhouse</div>
+        <div class="label-sm">Choose your option at Chuck's Roadhouse</div>
         <div id="meals" class="stack-8"></div>
       </div>
 
@@ -205,7 +205,7 @@
 
     <!-- After submit -->
     <div id="done" class="stack" hidden>
-      <div class="thanks"><b id="thanks"></b> You replied: <span id="answer"></span>.<span id="mealAnswer" hidden> Your dinner: <span id="mealName"></span>.</span></div>
+      <div class="thanks"><b id="thanks"></b> You replied: <span id="answer"></span>.<span id="mealAnswer" hidden> Your choice: <span id="mealName"></span>.</span></div>
       <div id="waiver" class="waiver" hidden>
         <div class="body">Since you're joining team building, please sign the Activate waiver.</div>
         <a class="btn btn-primary" href="https://waiver.playactivate.com/en-ca/groupwaiver?group=F4MBQP4UPG&amp;nor=0">Sign the waiver</a>
@@ -257,10 +257,11 @@ const $ = id => document.getElementById(id);
 const CHOICES = [
   ['both',     'Both',               'Team building at 16:00 and dinner at 17:30'],
   ['activity', 'Team building only', 'Activate Mississauga, 16:00 to 17:15'],
-  ['dinner',   'Dinner only',        "Chuck's Roadhouse, 17:30"],
+  ['dinner',   'Dinner/drinks only',        "Chuck's Roadhouse, 17:30"],
   ['no',       "Can't make it",      '']
 ];
 const MEALS = [
+  ['drinks-only', 'Will stop by for drinks, no dinner', ''],
   ['roadhouse-burger', '\u{1F354} Roadhouse Burger', 'Cheddar cheese, Chuck\u2019s secret sauce, shredded lettuce and pickle rounds. Served with fries.'],
   ['veggie-burger', '\u{1F331} Veggie Burger', 'Veggie patty fully dressed with ranch sauce. Served with fries.'],
   ['hot-honey-sizzler', '\u{1F525} Hot Honey Chicken Sizzler', 'Flame-grilled chicken breast with hot honey sauce and saut\u00E9ed vegetables.'],
@@ -275,7 +276,7 @@ const SEATS = ['1', '2', '3', '4'];
 const THANKS = {
   both: 'See you there! Get ready for the Holiday Showdown.',
   activity: 'See you at Activate. Game faces on!',
-  dinner: "See you at Chuck's. Come hungry!",
+  dinner: "See you at Chuck's!",
   no: 'You\u2019ll be missed!'
 };
 
