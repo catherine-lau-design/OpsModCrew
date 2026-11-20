@@ -1,6 +1,6 @@
 BEGIN:VCALENDAR
 VERSION:2.0
-PRODID:-//Ops Mod Crew//Holiday Showdown//EN
+PRODID:-//Ops Mod Crew//Holiday Par-Tee//EN
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 X-WR-TIMEZONE:America/Toronto
@@ -23,14 +23,17 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:opsmod-outing-2026@catherine-lau-design.github.io
-SEQUENCE:1
+SEQUENCE:3
 DTSTAMP:20261120T120000Z
 DTSTART;TZID=America/Toronto:20261209T160000
 DTEND;TZID=America/Toronto:20261209T180000
-SUMMARY:Ops Mod Crew - Holiday Showdown
+SUMMARY:Ops Mod Crew - Holiday Par-Tee ⛳🏓🎯
 LOCATION:Par-Tee Putt Toronto\, 26 Duncan St (2nd Floor)\, Toronto ON
-DESCRIPTION:After-work team hang out at Par-Tee Putt: mini putt\, ping pong
- \, darts and drinks. We will then walk to Nobu Toronto (25 Mercer St) for 
- the Deloitte social later in the evening.
+DESCRIPTION:Warm up with a game with your team before the Deloitte Social. 
+ After-work hang out at Par-Tee Putt Toronto (2nd floor) from 16:00 to 18:0
+ 0: mini putt\, ping pong\, darts and drinks. Then we walk to Nobu Toronto 
+ (25 Mercer St) for the Deloitte social. Please note: the Deloitte social i
+ nvite is sent separately\, so be sure to confirm your attendance there as 
+ well.
 END:VEVENT
 END:VCALENDAR
