@@ -92,13 +92,6 @@
           <input id="key" class="input" type="password" placeholder="Passcode" autocomplete="off">
           <button id="load" class="btn" type="button">Load names</button>
         </div>
-        <label class="label">Who goes on the wheel?
-          <select id="filter" style="margin-top:4px">
-            <option value="all">Everyone attending</option>
-            <option value="dinner">Dinner guests only</option>
-            <option value="activity">Team building only</option>
-          </select>
-        </label>
         <div id="status" class="msg" hidden></div>
       </div>
 
@@ -230,11 +223,7 @@ function setStatus(text, err) {
 
 /* ---------- Loading names ---------- */
 function applyFilter() {
-  const f = $('filter').value;
-  const keep = p => f === 'all' ? true
-    : f === 'dinner' ? (p.choice === 'both' || p.choice === 'dinner')
-    : (p.choice === 'both' || p.choice === 'activity');
-  names = people.filter(keep).map(p => p.name).sort((a, b) => a.localeCompare(b));
+  names = people.map(p => p.name).sort((a, b) => a.localeCompare(b));
   winners = []; lastWinner = null;
   $('winner').hidden = true; $('winnersCard').hidden = true; $('winnersList').innerHTML = '';
   refresh();
@@ -302,7 +291,6 @@ function spin() {
 /* ---------- Wiring ---------- */
 $('load').addEventListener('click', loadNames);
 $('key').addEventListener('keydown', e => { if (e.key === 'Enter') loadNames(); });
-$('filter').addEventListener('change', () => { if (people.length) applyFilter(); });
 $('spin').addEventListener('click', spin);
 $('add').addEventListener('click', () => {
   const have = new Set(names.map(n => n.toLowerCase()));

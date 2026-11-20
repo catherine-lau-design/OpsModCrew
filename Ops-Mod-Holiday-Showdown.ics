@@ -23,12 +23,14 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:opsmod-outing-2026@catherine-lau-design.github.io
-DTSTAMP:20261109T120000Z
+SEQUENCE:1
+DTSTAMP:20261120T120000Z
 DTSTART;TZID=America/Toronto:20261209T160000
-DTEND;TZID=America/Toronto:20261209T193000
+DTEND;TZID=America/Toronto:20261209T180000
 SUMMARY:Ops Mod Crew - Holiday Showdown
-LOCATION:Activate Mississauga\, 5980 McLaughlin Rd Unit 1\, Mississauga ON
-DESCRIPTION:Arrive by 16:00. Team building 16:00-17:15 at Activate Mississa
- uga. Dinner 17:30 at Chuck’s Roadhouse\, 5700 Mavis Rd.
+LOCATION:Par-Tee Putt Toronto\, 26 Duncan St (2nd Floor)\, Toronto ON
+DESCRIPTION:After-work team hang out at Par-Tee Putt: mini putt\, ping pong
+ \, darts and drinks. We will then walk to Nobu Toronto (25 Mercer St) for 
+ the Deloitte social later in the evening.
 END:VEVENT
 END:VCALENDAR

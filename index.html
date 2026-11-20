@@ -109,15 +109,12 @@
       <div id="clock" class="clock"></div>
     </div>
 
-    <div id="counts" class="body" hidden></div>
-
     <div style="margin-top:8px;display:flex;flex-wrap:wrap;align-items:center;gap:16px">
       <a class="btn btn-primary" href="#rsvp">RSVP</a>
       <span class="gold" style="font-size:16px">Please reply by November 27</span>
       <a id="ics" class="btn btn-gold-outline" href="ops-mod-holiday-showdown.ics" download>Add to calendar</a>
     </div>
     <div class="gold" style="font-size:14px;line-height:20px">Please RSVP below. The calendar file is just a reminder.</div>
-    <div class="gold" style="font-size:14px;line-height:20px">Team and ride pairings will be posted closer to the event. <a href="#teams" style="color:#E8D5A8;font-weight:700">Check your team and ride</a></div>
   </div>
 
   <!-- ===== SCHEDULE ===== -->
@@ -125,23 +122,23 @@
     <div class="h2">Schedule</div>
 
     <div class="row">
-      <div class="time">16:00- 17:15</div>
+      <div class="time">16:00- 18:00</div>
       <div class="col">
-        <div class="item-title">Team building at <a href="https://playactivate.com/mississauga">Activate Mississauga</a></div>
-        <div class="body">5980 McLaughlin Rd, Unit 1, Mississauga, ON L5R 3X9</div>
-        <div class="body">Everyone arrives by 16:00. Team building runs until 17:15.</div>
-        <div class="body">Interactive game rooms where teams work through short challenges, tracked with a wristband and a live leaderboard.</div>
+        <div class="item-title">After-work hang out at <a href="https://parteeputt.com">Par-Tee Putt Toronto</a></div>
+        <div class="body">26 Duncan St, 2nd Floor, Toronto, ON</div>
+        <div class="body">Mini putt, ping pong, darts, or just catch up with colleagues over a drink or two.</div>
+        <div class="body">A relaxed team hang out before we head to the Deloitte social later in the evening.</div>
       </div>
     </div>
 
     <div class="divider"></div>
 
     <div class="row">
-      <div class="time">17:30- 19:30</div>
+      <div class="time">Evening</div>
       <div class="col">
-        <div class="item-title">Dinner/drinks at <a href="https://chucksroadhouse.com/locations/mississauga-mavis/">Chuck's Roadhouse</a></div>
-        <div class="body">5700 Mavis Road, Mississauga, Ontario, Canada. A 5 minute drive from Activate.</div>
-        <div class="body">Join us for dinner or drinks. Choose your option when you RSVP. Let's raise a glass to a great year together!</div>
+        <div class="item-title">Deloitte social at Nobu Toronto</div>
+        <div class="body">25 Mercer St, Toronto, ON</div>
+        <div class="body">We'll walk over together from Par-Tee Putt.</div>
       </div>
     </div>
   </div>
@@ -149,12 +146,12 @@
   <!-- ===== GETTING THERE ===== -->
   <div class="card">
     <div class="h2">Getting there</div>
-    <div class="body">Activate Mississauga is a short 15 minute drive from the OC.</div>
-    <iframe class="map" title="Map of Activate Mississauga" loading="lazy"
-      src="https://www.google.com/maps?q=5980+McLaughlin+Rd+Unit+1+Mississauga+ON&amp;output=embed"></iframe>
+    <div class="body">We'll be leaving from 20 Queen Street West and walking over to Par-Tee Putt at 26 Duncan Street, 2nd floor.</div>
+    <iframe class="map" title="Map of Par-Tee Putt Toronto" loading="lazy"
+      src="https://www.google.com/maps?q=26+Duncan+St+Toronto+ON&amp;output=embed"></iframe>
     <div class="btn-row">
-      <a class="btn btn-map" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&amp;origin=99+Ironbridge+Rd&amp;destination=5980+McLaughlin+Rd+Unit+1+Mississauga+ON&amp;travelmode=driving">Directions to Activate</a>
-      <a class="btn btn-map-outline" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&amp;origin=5980+McLaughlin+Rd+Unit+1+Mississauga+ON&amp;destination=5700+Mavis+Rd+Mississauga+ON&amp;travelmode=driving">Directions from Activate to Chuck's</a>
+      <a class="btn btn-map" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&amp;origin=20+Queen+St+W+Toronto+ON&amp;destination=26+Duncan+St+Toronto+ON&amp;travelmode=walking">Walking directions to Par-Tee Putt</a>
+      <a class="btn btn-map-outline" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&amp;origin=26+Duncan+St+Toronto+ON&amp;destination=Nobu+Toronto+25+Mercer+St+Toronto+ON&amp;travelmode=walking">Walking route from Par-Tee Putt to Nobu</a>
     </div>
   </div>
 
@@ -176,28 +173,16 @@
         <input id="name" class="input" type="text">
       </label>
 
-      <div class="label-sm">What will you join?</div>
+      <div class="label-sm">Will you join us?</div>
       <div id="choices" class="stack-8"></div>
 
-      <div id="mealWrap" class="stack-8" hidden>
-        <div class="label-sm">Choose your option at Chuck's Roadhouse</div>
-        <div id="meals" class="stack-8"></div>
-      </div>
-
-      <label id="dietWrap" class="field" hidden>Any allergies or dietary restrictions?
-        <textarea id="diet" class="input" rows="2" placeholder="Leave blank if none"></textarea>
-      </label>
-
-      <div id="tbWrap" class="stack" hidden>
-        <input id="teamName" class="input" type="text" placeholder="Suggest a team name (optional)">
-        <div class="stack-8">
-          <div class="label-sm">Getting to Activate</div>
-          <div id="rides" class="pills"></div>
-          <div id="seatsWrap" class="stack-8" hidden>
-            <div class="label-sm">How many passengers can you take?</div>
-            <div id="seats" class="pills"></div>
-          </div>
-        </div>
+      <div id="detailsWrap" class="stack" hidden>
+        <label class="field">Any allergies or dietary restrictions?
+          <textarea id="diet" class="input" rows="2" placeholder="Leave blank if none"></textarea>
+        </label>
+        <label class="field">Any accessibility needs? Par-Tee Putt is on the 2nd floor, so please let us know what would help.
+          <textarea id="access" class="input" rows="2" placeholder="Leave blank if none"></textarea>
+        </label>
       </div>
 
       <div><button id="submit" class="submit" type="button">Send RSVP</button></div>
@@ -205,27 +190,9 @@
 
     <!-- After submit -->
     <div id="done" class="stack" hidden>
-      <div class="thanks"><b id="thanks"></b> You replied: <span id="answer"></span>.<span id="mealAnswer" hidden> Your choice: <span id="mealName"></span>.</span></div>
-      <div id="waiver" class="waiver" hidden>
-        <div class="body">Since you're joining team building, please sign the Activate waiver.</div>
-        <a class="btn btn-primary" href="https://waiver.playactivate.com/en-ca/groupwaiver?group=F4MBQP4UPG&amp;nor=0">Sign the waiver</a>
-      </div>
-      <div id="teamLine" class="body" style="font-weight:700" hidden></div>
-      <div id="rideLine" class="body" style="font-weight:700" hidden></div>
-      <div id="pending" class="body" hidden></div>
+      <div class="thanks"><b id="thanks"></b> You replied: <span id="answer"></span>.</div>
       <div><button id="reset" class="link-btn" type="button">Change my reply</button></div>
     </div>
-  </div>
-
-  <!-- ===== YOUR TEAM AND RIDE ===== -->
-  <div id="teams" class="card">
-    <div class="h2">Your team and ride</div>
-    <div class="body">Enter the name you used to RSVP to see your team and carpool. Pairings are posted closer to the event, so check back soon.</div>
-    <div class="stack-8">
-      <input id="lookupName" class="input" type="text" placeholder="Your name" autocomplete="name">
-      <div><button id="lookupBtn" class="submit ready" type="button">Find my team and ride</button></div>
-    </div>
-    <div id="lookupResult" class="thanks" hidden aria-live="polite"></div>
   </div>
 
 </div></div>
@@ -235,18 +202,14 @@
    SETTINGS: edit these to update the event
    ============================================================ */
 const CONFIG = {
-  // Google Apps Script web app that stores RSVPs (and returns team / carpool pairings)
+  // Google Apps Script web app that stores RSVPs
   rsvpEndpoint: 'https://script.google.com/macros/s/AKfycbzCGh5uH-UDgmTplHWFp8SyXTFjq7blUpLQ4S5krMleeBdJ3GvfTdhQB49fW46QVG2qNw/exec',
 
   // Event start for the countdown. Month is 0-based (11 = December).
   eventStart: new Date(2026, 11, 9, 16, 0),
 
-  // Header counts ("X joining team building. Y joining dinner."). Hidden while both are 0.
-  joiningTeamBuilding: 0,
-  joiningDinner: 0,
-
-
-  storageKey: 'opsmod-rsvp'
+  // Where a visitor's own reply is remembered in their browser
+  storageKey: 'opsmod-rsvp-parteeputt'
 };
 
 /* ============================================================
@@ -255,41 +218,15 @@ const CONFIG = {
 const $ = id => document.getElementById(id);
 
 const CHOICES = [
-  ['both',     'Both',               'Team building at 16:00 and dinner at 17:30'],
-  ['activity', 'Team building only', 'Activate Mississauga, 16:00 to 17:15'],
-  ['dinner',   'Dinner/drinks only',        "Chuck's Roadhouse, 17:30"],
-  ['no',       "Can't make it",      '']
+  ['yes', "I'll be there", 'Par-Tee Putt, 16:00 to 18:00'],
+  ['no',  "Can't make it", '']
 ];
-const MEALS = [
-  ['drinks-only', 'Will stop by for drinks, no dinner', ''],
-  ['roadhouse-burger', '\u{1F354} Roadhouse Burger', 'Cheddar cheese, Chuck\u2019s secret sauce, shredded lettuce and pickle rounds. Served with fries.'],
-  ['veggie-burger', '\u{1F331} Veggie Burger', 'Veggie patty fully dressed with ranch sauce. Served with fries.'],
-  ['hot-honey-sizzler', '\u{1F525} Hot Honey Chicken Sizzler', 'Flame-grilled chicken breast with hot honey sauce and saut\u00E9ed vegetables.'],
-  ['teriyaki-sizzler', '\u{1F525} Chicken Teriyaki Sizzler', 'Flame-grilled chicken breast with teriyaki sauce and saut\u00E9ed vegetables.'],
-  ['veggie-sizzler', '\u{1F331} Veggie Sizzler', 'Fresh saut\u00E9ed vegetables with smokehouse seasoning.'],
-  ['fish-chips', '\u{1F41F} Fish & Chips', '1-piece beer-battered haddock with fries, coleslaw, tartar sauce and lemon.'],
-  ['chicken-parm', '\u{1F35D} Chicken Parm Pasta', 'Breaded chicken breast with penne, ros\u00E9 sauce, mozzarella and Parmesan.'],
-  ['bbq-ribs', '\u{1F356} \u00BD Rack BBQ Ribs', 'BBQ back ribs.']
-];
-const RIDES = [['need', 'I need a ride'], ['drive', 'I can drive'], ['covered', "I'm covered"]];
-const SEATS = ['1', '2', '3', '4'];
 const THANKS = {
-  both: 'See you there! Get ready for the Holiday Showdown.',
-  activity: 'See you at Activate. Game faces on!',
-  dinner: "See you at Chuck's!",
+  yes: 'See you at Par-Tee Putt!',
   no: 'You\u2019ll be missed!'
 };
 
-let S = { name: '', choice: '', meal: '', ride: '', seats: '', teamName: '', diet: '', done: false, assign: null };
-
-/* ---------- Header counts ---------- */
-(function () {
-  const tb = CONFIG.joiningTeamBuilding, dn = CONFIG.joiningDinner;
-  if (tb + dn > 0) {
-    $('counts').textContent = tb + ' joining team building. ' + dn + ' joining dinner.';
-    $('counts').hidden = false;
-  }
-})();
+let S = { name: '', choice: '', diet: '', access: '', done: false };
 
 /* ---------- Flip-clock countdown ---------- */
 const KEYS = ['Days', 'Hours', 'Min', 'Sec'];
@@ -316,36 +253,17 @@ drawClock();
 setInterval(() => { oldT = curT; curT = calc(); drawClock(); }, 1000);
 
 /* ---------- RSVP ---------- */
-function derived() {
-  const { choice, ride, seats, name, meal } = S;
-  const tb = choice === 'both' || choice === 'activity';
-  const dn = choice === 'both' || choice === 'dinner';
-  const ok = !!(name.trim() && choice && (!dn || meal) && (!tb || (ride && (ride !== 'drive' || seats))));
-  return { tb, dn, ok };
-}
+function isReady() { return !!(S.name.trim() && S.choice); }
 
 function postRecord(rec) {
   if (!CONFIG.rsvpEndpoint) return;
   try { fetch(CONFIG.rsvpEndpoint, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'text/plain' }, body: JSON.stringify(rec) }).catch(() => {}); } catch (e) {}
 }
 
-function lookup(nm) {
-  if (!CONFIG.rsvpEndpoint || !nm) return;
-  try {
-    fetch(CONFIG.rsvpEndpoint + '?action=lookup&name=' + encodeURIComponent(nm))
-      .then(r => r.json())
-      .then(d => { if (d && d.released) { S.assign = { team: d.team || '', carpool: d.carpool || '' }; render(); } })
-      .catch(() => {});
-  } catch (e) {}
-}
-
 function render() {
-  const { tb, dn, ok } = derived();
-
   $('form').hidden = S.done;
   $('done').hidden = !S.done;
 
-  // choices
   $('choices').innerHTML = '';
   CHOICES.forEach(([k, label, sub]) => {
     const b = document.createElement('button');
@@ -356,87 +274,30 @@ function render() {
     $('choices').appendChild(b);
   });
 
-  $('mealWrap').hidden = !dn;
-  $('meals').innerHTML = '';
-  MEALS.forEach(([k, label, sub]) => {
-    const b = document.createElement('button');
-    b.type = 'button';
-    b.className = 'choice' + (S.meal === k ? ' sel' : '');
-    b.innerHTML = `<span class="t">${label}</span><span class="s">${sub}</span>`;
-    b.onclick = () => { S.meal = k; render(); };
-    $('meals').appendChild(b);
-  });
+  $('detailsWrap').hidden = S.choice !== 'yes';
+  $('submit').className = 'submit' + (isReady() ? ' ready' : '');
 
-  $('dietWrap').hidden = !dn;
-  $('tbWrap').hidden = !tb;
-
-  // rides
-  $('rides').innerHTML = '';
-  RIDES.forEach(([k, label]) => {
-    const b = document.createElement('button');
-    b.type = 'button'; b.className = 'pill' + (S.ride === k ? ' sel' : ''); b.textContent = label;
-    b.onclick = () => { S.ride = k; render(); };
-    $('rides').appendChild(b);
-  });
-
-  // seats
-  $('seatsWrap').hidden = !(tb && S.ride === 'drive');
-  $('seats').innerHTML = '';
-  SEATS.forEach(k => {
-    const b = document.createElement('button');
-    b.type = 'button'; b.className = 'pill' + (S.seats === k ? ' sel' : ''); b.textContent = k;
-    b.onclick = () => { S.seats = k; render(); };
-    $('seats').appendChild(b);
-  });
-
-  $('submit').className = 'submit' + (ok ? ' ready' : '');
-
-  // confirmation view
   if (S.done) {
-    const wantsRide = tb && (S.ride === 'need' || S.ride === 'drive');
-    const teamLine = tb && S.assign && S.assign.team ? 'You\u2019re on team ' + S.assign.team + '.' : '';
-    const rideLine = wantsRide && S.assign && S.assign.carpool ? 'You will be carpooling with ' + S.assign.carpool + '.' : '';
-    const pending = (tb && !teamLine) || (wantsRide && !rideLine) ? 'Check back for team and ride pairing.' : '';
-
     $('thanks').textContent = 'Thank you, ' + S.name.trim() + '. ' + (THANKS[S.choice] || '');
     $('answer').textContent = (CHOICES.find(c => c[0] === S.choice) || [0, ''])[1];
-    const mealRow = MEALS.find(m => m[0] === S.meal);
-    $('mealAnswer').hidden = !(dn && mealRow);
-    $('mealName').textContent = mealRow ? mealRow[1] : '';
-    $('waiver').hidden = !tb;
-    $('teamLine').textContent = teamLine; $('teamLine').hidden = !teamLine;
-    $('rideLine').textContent = rideLine; $('rideLine').hidden = !rideLine;
-    if (pending) $('pending').innerHTML = 'Check back for your team and ride pairing in the <a href="#teams">Your team and ride</a> section.';
-    $('pending').hidden = !pending;
   }
 }
 
 $('name').addEventListener('input', e => { S.name = e.target.value; render(); });
 $('diet').addEventListener('input', e => { S.diet = e.target.value; });
-$('teamName').addEventListener('input', e => { S.teamName = e.target.value; });
+$('access').addEventListener('input', e => { S.access = e.target.value; });
 
 $('submit').addEventListener('click', () => {
-  const { tb, dn, ok } = derived();
-  if (!ok) return;
+  if (!isReady()) return;
+  const yes = S.choice === 'yes';
   const rec = {
-    name: S.name.trim(), choice: S.choice,
-    activity: tb, dinner: dn,
-    needsRide: tb && S.ride === 'need',
-    canDrive: tb && S.ride === 'drive',
-    seats: tb && S.ride === 'drive' ? Number(S.seats) : 0,
-    meal: dn ? S.meal : '',
-    mealLabel: dn && S.meal ? (MEALS.find(m => m[0] === S.meal) || [0, ''])[1] : '',
-    team: '',
-    teamName: tb ? S.teamName.trim() : '',
-    diet: dn ? S.diet.trim() : '',
+    name: S.name.trim(),
+    choice: S.choice,
+    diet: yes ? S.diet.trim() : '',
+    access: yes ? S.access.trim() : '',
     at: new Date().toISOString()
   };
-  try {
-    localStorage.setItem(CONFIG.storageKey, JSON.stringify(rec));
-    const all = JSON.parse(localStorage.getItem(CONFIG.storageKey + '-all') || '[]');
-    all.push(rec);
-    localStorage.setItem(CONFIG.storageKey + '-all', JSON.stringify(all));
-  } catch (e) {}
+  try { localStorage.setItem(CONFIG.storageKey, JSON.stringify(rec)); } catch (e) {}
   postRecord(rec);
   S.done = true;
   render();
@@ -444,56 +305,16 @@ $('submit').addEventListener('click', () => {
 
 $('reset').addEventListener('click', () => {
   S.done = false;
-  $('name').value = S.name; $('diet').value = S.diet; $('teamName').value = S.teamName;
+  $('name').value = S.name; $('diet').value = S.diet; $('access').value = S.access;
   render();
 });
-
-/* ---------- Team and ride lookup ---------- */
-function showLookup(lines) {
-  const box = $('lookupResult');
-  box.innerHTML = '';
-  lines.forEach(t => { const d = document.createElement('div'); d.textContent = t; box.appendChild(d); });
-  box.hidden = false;
-}
-async function doLookup() {
-  const nm = $('lookupName').value.trim();
-  if (!nm) { showLookup(['Please enter your name.']); return; }
-  const btn = $('lookupBtn');
-  btn.disabled = true; btn.textContent = 'Looking...';
-  try {
-    const r = await fetch(CONFIG.rsvpEndpoint + '?action=lookup&name=' + encodeURIComponent(nm));
-    const d = await r.json();
-    if (!d.released) {
-      showLookup(['Team and ride pairings are not posted yet. Please check back soon.']);
-    } else if (!d.team && !d.carpool) {
-      showLookup(['We don\u2019t have a team or ride for that name yet. Make sure it matches the name you used to RSVP, or check back soon.']);
-    } else {
-      const lines = [];
-      if (d.team) lines.push('You\u2019re on team ' + d.team + '.');
-      if (d.carpool) lines.push('You will be carpooling with ' + d.carpool + '.');
-      showLookup(lines);
-    }
-  } catch (e) {
-    showLookup(['We couldn\u2019t look that up right now. Please try again in a moment.']);
-  }
-  btn.disabled = false; btn.textContent = 'Find my team and ride';
-}
-$('lookupBtn').addEventListener('click', doLookup);
-$('lookupName').addEventListener('keydown', e => { if (e.key === 'Enter') doLookup(); });
 
 // Restore a saved reply on return visits
 try {
   const s = JSON.parse(localStorage.getItem(CONFIG.storageKey) || 'null');
-  if (s && s.choice) {
-    S = Object.assign(S, {
-      name: s.name, choice: s.choice, meal: s.meal || '',
-      ride: s.ride || (s.needsRide ? 'need' : s.canDrive ? 'drive' : (s.activity ? 'covered' : '')),
-      seats: s.seats ? String(s.seats) : '',
-      teamName: s.teamName || '', diet: s.diet || '', done: true
-    });
-    $('name').value = S.name; $('diet').value = S.diet; $('teamName').value = S.teamName;
-    $('lookupName').value = S.name;
-    lookup(s.name);
+  if (s && (s.choice === 'yes' || s.choice === 'no')) {
+    S = Object.assign(S, { name: s.name, choice: s.choice, diet: s.diet || '', access: s.access || '', done: true });
+    $('name').value = S.name; $('diet').value = S.diet; $('access').value = S.access;
   }
 } catch (e) {}
 
